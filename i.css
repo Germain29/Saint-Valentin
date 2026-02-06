@@ -326,7 +326,7 @@ input:focus, select:focus, textarea:focus {
 .card-from {
     font-size: 1.4rem;
     margin-top: 20px;
-    color: #6d5d6b;
+    color: white;
 }
 
 .card-from span {
