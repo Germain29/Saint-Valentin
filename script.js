@@ -25,12 +25,12 @@ const messagesPredifinis = [
 ];
 
 const themes = {
-    'theme-1': { primary: '#e84393' },
-    'theme-2': { primary: '#0984e3' },
-    'theme-3': { primary: '#e17055' },
-    'theme-4': { primary: '#00b894' },
-    'theme-5': { primary: '#6c5ce7' },
-    'theme-6': { primary: '#fd79a8' }
+    'theme-1': { primary: '#e84393', background: "linear-gradient(135deg, #ffafbd, #ffc3a0)" },
+    'theme-2': { primary: '#0984e3', background: "linear-gradient(135deg, #a1c4fd, #c2e9fb)" },
+    'theme-3': { primary: '#e17055', background: "linear-gradient(135deg, #ffecd2, #fcb69f)" },
+    'theme-4': { primary: '#00b894', background: "linear-gradient(135deg, #84fab0, #8fd3f4)" },
+    'theme-5': { primary: '#6c5ce7', background: "linear-gradient(135deg, #d4fc79, #96e6a1)" },
+    'theme-6': { primary: '#fd79a8', background: "linear-gradient(135deg, #fad0c4, #ffd1ff)" }
 };
 
 let currentTheme = 'theme-1';
@@ -60,13 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
     shareOptions.classList.add('hidden');
 
     // ======================
-    // OUTILS
+    // FONCTIONS UTILITAIRES
     // ======================
     const randomItem = arr => arr[Math.floor(Math.random() * arr.length)];
 
     function applyTheme() {
         const theme = themes[currentTheme];
         valentineCard.style.border = `5px solid ${theme.primary}`;
+        valentineCard.style.background = `url('k.jpg') center/cover no-repeat, ${theme.background}`;
         valentineCard.querySelector('.card-title').style.color = theme.primary;
         cardHeart.querySelector('i').style.color = theme.primary;
     }
@@ -88,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ======================
-    // JPG AUTO
+    // CAPTURE ET TÉLÉCHARGEMENT
     // ======================
     function downloadCardAsJPG() {
         html2canvas(valentineCard, { scale: 2, useCORS: true })
             .then(canvas => {
                 const a = document.createElement('a');
                 const name = destinataireInput.value || "mon_amour";
-                a.download = `carte_saint_valentin_${name.replace(/\s+/g, '_')}.jpg`;
+                a.download = `carte_saint_valentin_${name.replace(/\s+/g,'_')}.jpg`;
                 a.href = canvas.toDataURL('image/jpeg', 0.95);
                 a.click();
             });
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ======================
-    // CONFETTIS
+    // CONFETTIS CŒUR
     // ======================
     function confetti() {
         for (let i = 0; i < 40; i++) {
@@ -120,15 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
             heart.style.position = 'fixed';
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.top = '-20px';
-            heart.style.fontSize = '20px';
-            heart.style.animation = 'fall 3s linear';
+            heart.style.fontSize = `${Math.random()*24+12}px`;
+            heart.style.opacity = Math.random();
+            heart.style.transform = `rotate(${Math.random()*360}deg)`;
+            heart.style.animation = `fall ${Math.random()*2+2}s linear`;
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 3000);
         }
     }
 
     // ======================
-    // EVENTS
+    // ÉVÉNEMENTS
     // ======================
     genererBtn.addEventListener('click', () => {
         updateCard();

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Générateur de Cartes - Saint-Valentin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="i.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -34,7 +34,7 @@
                 
                 <div class="form-group">
                     <label for="message"><i class="fas fa-envelope"></i> Message personnalisé</label>
-                    <textarea id="message" rows="4" placeholder="Écrivez votre message d'amour ici...">En cette Saint-Valentin, je te souhaite beaucoup d'amour, de joie et de douceur. Que cette journée soit remplie de petits bonheurs !</textarea>
+                    <textarea id="message" rows="4" placeholder="Écrivez votre message d'amour ici..."></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -107,16 +107,14 @@
                             <i class="fas fa-heart"></i>
                         </div>
                         
-                        <p class="card-message" id="cardMessage">
-                            En cette Saint-Valentin, je te souhaite beaucoup d'amour, de joie et de douceur. Que cette journée soit remplie de petits bonheurs !
-                        </p>
+                        <p class="card-message" id="cardMessage"></p>
                         
                         <p class="card-from">De la part de : <span id="cardExpediteur">[Votre nom]</span></p>
                     </div>
                     
                     <div class="generated-compliment hidden" id="complimentContainer">
                         <i class="fas fa-quote-left"></i> 
-                        <span id="complimentText">Tu es une personne merveilleuse !</span> 
+                        <span id="complimentText"></span> 
                         <i class="fas fa-quote-right"></i>
                     </div>
                     
@@ -135,10 +133,10 @@
         
         <footer>
             <p>© 2026 Générateur de Cartes de Saint-Valentin | Réalisé par Germain & Nathan</p>
-            <p>Partagez l'amour, pas la moquerie ! ❤️</p>
         </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
