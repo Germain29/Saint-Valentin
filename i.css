@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Reset et base */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     color: #5a3d5c;
 }
 
-/* Container */
+/* Container principal */
 .container {
     max-width: 1000px;
     width: 100%;
@@ -39,7 +39,7 @@ header h1 {
     color: #e84393;
     font-size: 2.8rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 8px rgba(232, 67, 147, 0.5);
 }
 
 header p {
@@ -49,7 +49,6 @@ header p {
     margin: 0 auto;
 }
 
-/* Heart Decorations */
 .heart-decoration {
     position: absolute;
     color: rgba(232, 67, 147, 0.2);
@@ -62,7 +61,7 @@ header p {
 .heart-3 { bottom: 10px; left: 40px; }
 .heart-4 { bottom: 10px; right: 40px; }
 
-/* App Layout */
+/* Container de l'app */
 .app-container {
     display: flex;
     flex-wrap: wrap;
@@ -70,6 +69,7 @@ header p {
     margin-bottom: 40px;
 }
 
+/* Formulaire */
 .form-section {
     flex: 1;
     min-width: 300px;
@@ -79,20 +79,6 @@ header p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.card-preview {
-    flex: 1;
-    min-width: 300px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Titles & Sections */
 .section-title {
     color: #e84393;
     margin-bottom: 25px;
@@ -119,6 +105,7 @@ input, select, textarea {
     border-radius: 10px;
     font-size: 1rem;
     transition: border-color 0.3s;
+    background: rgba(255,255,255,0.95);
 }
 
 input:focus, select:focus, textarea:focus {
@@ -126,7 +113,6 @@ input:focus, select:focus, textarea:focus {
     border-color: #e84393;
 }
 
-/* Themes */
 .theme-selector {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -154,9 +140,10 @@ input:focus, select:focus, textarea:focus {
 
 .theme-option.selected {
     border-color: #e84393;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(232, 67, 147, 0.4);
 }
 
+/* Thèmes */
 .theme-1 { background: linear-gradient(135deg, #ffafbd, #ffc3a0); }
 .theme-2 { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
 .theme-3 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
@@ -164,7 +151,7 @@ input:focus, select:focus, textarea:focus {
 .theme-5 { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
 .theme-6 { background: linear-gradient(135deg, #fad0c4, #ffd1ff); }
 
-/* Checkboxes */
+/* Checkbox */
 .checkbox {
     display: flex;
     align-items: center;
@@ -177,7 +164,7 @@ input:focus, select:focus, textarea:focus {
     margin-right: 10px;
 }
 
-/* Buttons */
+/* Boutons */
 .button-group {
     display: flex;
     gap: 15px;
@@ -204,72 +191,61 @@ input:focus, select:focus, textarea:focus {
 .btn-primary {
     background: linear-gradient(to right, #e84393, #fd79a8);
     color: white;
+    box-shadow: 0 5px 15px rgba(232,67,147,0.4);
 }
 
 .btn-secondary {
     background: linear-gradient(to right, #6c5ce7, #a29bfe);
     color: white;
+    box-shadow: 0 5px 15px rgba(108,92,231,0.4);
 }
 
 .btn-success {
     background: linear-gradient(to right, #00b894, #55efc4);
     color: white;
+    box-shadow: 0 5px 15px rgba(0,184,148,0.4);
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn:active {
     transform: translateY(0);
 }
 
-/* Carte de Saint-Valentin améliorée */
+/* Carte de Saint-Valentin */
 .valentine-card {
     width: 100%;
     max-width: 500px;
-    background: linear-gradient(
-        270deg,
-        #ffffff,
-        #fff0f5,
-        #ffe4ec,
-        #ffffff
-    );
-    background-size: 600% 600%;
-    animation: cardGradient 12s ease infinite, cardGlow 3s infinite;
-    border-radius: 24px;
+    background: linear-gradient(145deg, #fff0f5, #ffe4e1);
+    border-radius: 20px;
     padding: 30px;
+    box-shadow: 0 15px 40px rgba(232, 67, 147, 0.25), 0 0 20px rgba(255,182,193,0.3) inset;
     position: relative;
     overflow: hidden;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
 }
 
-.valentine-card::after {
-    content: "";
+/* Glow animé subtil (mais capturable) */
+.valentine-card::before {
+    content: '';
     position: absolute;
     top: -50%;
-    left: -80%;
-    width: 50%;
+    left: -50%;
+    width: 200%;
     height: 200%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.7),
-        transparent
-    );
-    transform: rotate(25deg);
-    animation: cardShine 4s infinite;
+    background: radial-gradient(circle at center, rgba(255,182,193,0.2), transparent 70%);
+    transform: rotate(45deg);
     pointer-events: none;
 }
 
-/* Carte contenu */
+/* Header de la carte */
 .card-header {
     text-align: center;
     border-bottom: 2px dashed #ffe0e6;
@@ -281,6 +257,7 @@ input:focus, select:focus, textarea:focus {
     color: #e84393;
     font-size: 2.2rem;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(232,67,147,0.4);
 }
 
 .card-date {
@@ -288,6 +265,7 @@ input:focus, select:focus, textarea:focus {
     font-style: italic;
 }
 
+/* Contenu de la carte */
 .card-content {
     flex-grow: 1;
     display: flex;
@@ -315,14 +293,15 @@ input:focus, select:focus, textarea:focus {
     color: #5a3d5c;
 }
 
-/* Coeur animé amélioré */
+/* Cœur avec glow */
 .card-heart {
     font-size: 4rem;
     color: #e84393;
     margin: 20px 0;
-    animation: heartbeatSoft 1.6s infinite;
+    text-shadow: 0 0 10px #e84393, 0 0 20px #fd79a8, 0 0 30px #ff6eb4;
 }
 
+/* Expéditeur */
 .card-from {
     font-size: 1.4rem;
     margin-top: 20px;
@@ -334,6 +313,7 @@ input:focus, select:focus, textarea:focus {
     font-weight: bold;
 }
 
+/* Footer */
 .card-footer {
     text-align: center;
     border-top: 2px dashed #ffe0e6;
@@ -343,20 +323,23 @@ input:focus, select:focus, textarea:focus {
     font-style: italic;
 }
 
+/* Compliments */
 .generated-compliment {
-    background-color: #fff9fb;
+    background-color: #fff0f5;
     border-radius: 10px;
     padding: 15px;
     margin-top: 20px;
     border-left: 5px solid #e84393;
     font-style: italic;
     color: #6d5d6b;
+    box-shadow: 0 5px 15px rgba(232,67,147,0.2);
 }
 
 .hidden {
     display: none;
 }
 
+/* Footer de page */
 footer {
     text-align: center;
     padding: 20px;
@@ -365,7 +348,7 @@ footer {
     margin-top: 20px;
 }
 
-/* Share Options */
+/* Boutons de partage */
 .share-options {
     display: flex;
     gap: 15px;
@@ -385,54 +368,12 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
+    box-shadow: 0 5px 15px rgba(232,67,147,0.1);
 }
 
 .share-btn:hover {
     background: #e9ecef;
     transform: translateY(-3px);
-}
-
-/* Animations */
-@keyframes cardGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes cardGlow {
-    0% {
-        box-shadow:
-            0 15px 30px rgba(232, 67, 147, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    }
-    50% {
-        box-shadow:
-            0 25px 55px rgba(232, 67, 147, 0.6),
-            inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    }
-    100% {
-        box-shadow:
-            0 15px 30px rgba(232, 67, 147, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    }
-}
-
-@keyframes cardShine {
-    0% { left: -80%; }
-    100% { left: 130%; }
-}
-
-@keyframes heartbeatSoft {
-    0% { transform: scale(1); }
-    40% { transform: scale(1.15); }
-    60% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Hover effect carte */
-.valentine-card:hover {
-    transform: translateY(-4px);
-    transition: transform 0.3s ease;
 }
 
 /* Responsive */
