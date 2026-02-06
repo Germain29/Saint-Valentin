@@ -1,4 +1,5 @@
- {
+/* Reset & Base */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,12 +16,14 @@ body {
     color: #5a3d5c;
 }
 
+/* Container */
 .container {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
 }
 
+/* Header */
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -46,6 +49,7 @@ header p {
     margin: 0 auto;
 }
 
+/* Heart Decorations */
 .heart-decoration {
     position: absolute;
     color: rgba(232, 67, 147, 0.2);
@@ -58,6 +62,7 @@ header p {
 .heart-3 { bottom: 10px; left: 40px; }
 .heart-4 { bottom: 10px; right: 40px; }
 
+/* App Layout */
 .app-container {
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +92,7 @@ header p {
     justify-content: center;
 }
 
+/* Titles & Sections */
 .section-title {
     color: #e84393;
     margin-bottom: 25px;
@@ -120,6 +126,7 @@ input:focus, select:focus, textarea:focus {
     border-color: #e84393;
 }
 
+/* Themes */
 .theme-selector {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -157,6 +164,7 @@ input:focus, select:focus, textarea:focus {
 .theme-5 { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
 .theme-6 { background: linear-gradient(135deg, #fad0c4, #ffd1ff); }
 
+/* Checkboxes */
 .checkbox {
     display: flex;
     align-items: center;
@@ -169,6 +177,7 @@ input:focus, select:focus, textarea:focus {
     margin-right: 10px;
 }
 
+/* Buttons */
 .button-group {
     display: flex;
     gap: 15px;
@@ -216,22 +225,51 @@ input:focus, select:focus, textarea:focus {
     transform: translateY(0);
 }
 
-/* Carte de Saint-Valentin */
+/* Carte de Saint-Valentin améliorée */
 .valentine-card {
     width: 100%;
     max-width: 500px;
-    background: white;
-    border-radius: 20px;
+    background: linear-gradient(
+        270deg,
+        #ffffff,
+        #fff0f5,
+        #ffe4ec,
+        #ffffff
+    );
+    background-size: 600% 600%;
+    animation: cardGradient 12s ease infinite, cardGlow 3s infinite;
+    border-radius: 24px;
     padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
+.valentine-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    transform: rotate(25deg);
+    animation: cardShine 4s infinite;
+    pointer-events: none;
+}
+
+/* Carte contenu */
 .card-header {
     text-align: center;
     border-bottom: 2px dashed #ffe0e6;
@@ -277,17 +315,12 @@ input:focus, select:focus, textarea:focus {
     color: #5a3d5c;
 }
 
+/* Coeur animé amélioré */
 .card-heart {
     font-size: 4rem;
     color: #e84393;
     margin: 20px 0;
-    animation: heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    animation: heartbeatSoft 1.6s infinite;
 }
 
 .card-from {
@@ -332,6 +365,7 @@ footer {
     margin-top: 20px;
 }
 
+/* Share Options */
 .share-options {
     display: flex;
     gap: 15px;
@@ -358,6 +392,50 @@ footer {
     transform: translateY(-3px);
 }
 
+/* Animations */
+@keyframes cardGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow:
+            0 15px 30px rgba(232, 67, 147, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        box-shadow:
+            0 25px 55px rgba(232, 67, 147, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        box-shadow:
+            0 15px 30px rgba(232, 67, 147, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes cardShine {
+    0% { left: -80%; }
+    100% { left: 130%; }
+}
+
+@keyframes heartbeatSoft {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.15); }
+    60% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Hover effect carte */
+.valentine-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .app-container {
         flex-direction: column;
