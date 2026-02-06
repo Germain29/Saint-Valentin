@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Cartes - Saint-Valentin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="i.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="heart-decoration heart-1"><i class="fas fa-heart"></i></div>
+            <div class="heart-decoration heart-2"><i class="fas fa-heart"></i></div>
+            <h1><i class="fas fa-heart"></i> Générateur de Cartes de Saint-Valentin</h1>
+            <p>Créez une carte personnalisée pour la Saint-Valentin et surprenez vos proches avec un message d'amour unique !</p>
+            <div class="heart-decoration heart-3"><i class="fas fa-heart"></i></div>
+            <div class="heart-decoration heart-4"><i class="fas fa-heart"></i></div>
+        </header>
+
+        <div class="app-container">
+            <div class="form-section">
+                <h2 class="section-title">Personnalisez votre carte</h2>
+                
+                <div class="form-group">
+                    <label for="destinataire"><i class="fas fa-user"></i> Destinataire</label>
+                    <input type="text" id="destinataire" placeholder="Nom de la personne">
+                </div>
+                
+                <div class="form-group">
+                    <label for="expediteur"><i class="fas fa-signature"></i> Votre nom</label>
+                    <input type="text" id="expediteur" placeholder="Votre nom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-envelope"></i> Message personnalisé</label>
+                    <textarea id="message" rows="4" placeholder="Écrivez votre message d'amour ici...">En cette Saint-Valentin, je te souhaite beaucoup d'amour, de joie et de douceur. Que cette journée soit remplie de petits bonheurs !</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-palette"></i> Thème de la carte</label>
+                    <div class="theme-selector">
+                        <div class="theme-option theme-1 selected" data-theme="theme-1">
+                            <i class="fas fa-heart"></i>
+                            <p>Romantique</p>
+                        </div>
+                        <div class="theme-option theme-2" data-theme="theme-2">
+                            <i class="fas fa-cloud"></i>
+                            <p>Rêveur</p>
+                        </div>
+                        <div class="theme-option theme-3" data-theme="theme-3">
+                            <i class="fas fa-sun"></i>
+                            <p>Ensoleillé</p>
+                        </div>
+                        <div class="theme-option theme-4" data-theme="theme-4">
+                            <i class="fas fa-leaf"></i>
+                            <p>Nature</p>
+                        </div>
+                        <div class="theme-option theme-5" data-theme="theme-5">
+                            <i class="fas fa-seedling"></i>
+                            <p>Printanier</p>
+                        </div>
+                        <div class="theme-option theme-6" data-theme="theme-6">
+                            <i class="fas fa-candy-cane"></i>
+                            <p>Douceur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-gift"></i> Options supplémentaires</label>
+                    <div class="options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="addCompliment" checked>
+                            Ajouter un compliment aléatoire
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" id="addHeartAnimation" checked>
+                            Animation de cœur
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" id="genererBtn">
+                        <i class="fas fa-magic"></i> Générer la carte
+                    </button>
+                    <button class="btn btn-secondary" id="exempleBtn">
+                        <i class="fas fa-eye"></i> Voir un exemple
+                    </button>
+                    <button class="btn btn-success" id="enregistrerBtn">
+                        <i class="fas fa-download"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card-preview">
+                <h2 class="section-title">Aperçu de votre carte</h2>
+                
+                <div class="valentine-card" id="valentineCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Carte de Saint-Valentin</h2>
+                        <p class="card-date">14 février 2024</p>
+                    </div>
+                    
+                    <div class="card-content">
+                        <p class="card-to">Pour : <span id="cardDestinataire">[Destinataire]</span></p>
+                        
+                        <div class="card-heart" id="cardHeart">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        
+                        <p class="card-message" id="cardMessage">
+                            En cette Saint-Valentin, je te souhaite beaucoup d'amour, de joie et de douceur. Que cette journée soit remplie de petits bonheurs !
+                        </p>
+                        
+                        <p class="card-from">De la part de : <span id="cardExpediteur">[Votre nom]</span></p>
+                    </div>
+                    
+                    <div class="generated-compliment hidden" id="complimentContainer">
+                        <i class="fas fa-quote-left"></i> 
+                        <span id="complimentText">Tu es une personne merveilleuse !</span> 
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <p>Fait avec <i class="fas fa-heart" style="color:#e84393;"></i> pour la Saint-Valentin</p>
+                    </div>
+                </div>
+                
+                <div class="share-options hidden" id="shareOptions">
+                    <button class="share-btn" id="shareTwitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </button>
+                    <button class="share-btn" id="shareWhatsApp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button class="share-btn" id="copyLink">
+                        <i class="fas fa-link"></i> Copier le lien
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Générateur de Cartes de Saint-Valentin | Fait avec <i class="fas fa-heart" style="color:#e84393;"></i></p>
+            <p>Partagez l'amour, pas la moquerie ! ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
