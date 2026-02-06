@@ -1,4 +1,4 @@
-/* Reset et styles de base */
+/* ========== RESET & POLICES ========== */
 * {
     margin: 0;
     padding: 0;
@@ -16,21 +16,20 @@ body {
     color: #5a3d5c;
 }
 
-/* Conteneur principal */
 .container {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
 }
 
-/* Header */
+/* ========== HEADER ========== */
 header {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -39,7 +38,7 @@ header h1 {
     color: #e84393;
     font-size: 2.8rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header p {
@@ -51,7 +50,7 @@ header p {
 
 .heart-decoration {
     position: absolute;
-    color: rgba(232,67,147,0.2);
+    color: rgba(232, 67, 147, 0.2);
     font-size: 3rem;
     z-index: 0;
 }
@@ -61,7 +60,7 @@ header p {
 .heart-3 { bottom: 10px; left: 40px; }
 .heart-4 { bottom: 10px; right: 40px; }
 
-/* Section principale */
+/* ========== LAYOUT PRINCIPAL ========== */
 .app-container {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +68,7 @@ header p {
     margin-bottom: 40px;
 }
 
-.form-section {
+.form-section, .card-preview {
     flex: 1;
     min-width: 300px;
     background-color: rgba(255,255,255,0.95);
@@ -78,15 +77,6 @@ header p {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.card-preview {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Titres */
 .section-title {
     color: #e84393;
     margin-bottom: 25px;
@@ -95,7 +85,6 @@ header p {
     font-size: 1.8rem;
 }
 
-/* Formulaire */
 .form-group {
     margin-bottom: 20px;
 }
@@ -121,10 +110,9 @@ input:focus, select:focus, textarea:focus {
     border-color: #e84393;
 }
 
-/* Sélecteur de thème */
 .theme-selector {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 10px;
     margin-top: 10px;
 }
@@ -149,10 +137,21 @@ input:focus, select:focus, textarea:focus {
 
 .theme-option.selected {
     border-color: #e84393;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Boutons */
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.checkbox input {
+    width: auto;
+    margin-right: 10px;
+}
+
 .button-group {
     display: flex;
     gap: 15px;
@@ -183,147 +182,126 @@ input:focus, select:focus, textarea:focus {
 .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 .btn:active { transform: translateY(0); }
 
-/* Carte de Saint-Valentin */
+/* ========== CARTE DE SAINT-VALENTIN ========== */
 .valentine-card {
     width: 100%;
     max-width: 500px;
-    background: url('k.jpg') center/cover no-repeat;
+    min-height: 500px;
+    background: url('k.jpg') no-repeat center center/cover; /* <-- Fond k.jpg */
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     position: relative;
     overflow: hidden;
-    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    animation: shine 4s infinite linear;
-    color: #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border: 5px solid #e84393; /* couleur thème par défaut */
 }
 
-/* Animation brillance */
-@keyframes shine {
-    0% { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
-    50% { box-shadow: 0 0 25px rgba(255,255,255,0.5); }
-    100% { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+.card-header, .card-footer {
+    text-align: center;
+    padding: 10px 0;
 }
 
 .card-header {
-    text-align: center;
-    border-bottom: 2px dashed rgba(255,255,255,0.5);
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    border-bottom: 2px dashed rgba(255,224,230,0.7);
 }
 
-.card-title {
-    font-size: 2.2rem;
-    color: #ffd1e6;
+.card-footer {
+    border-top: 2px dashed rgba(255,224,230,0.7);
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
-.card-date { font-style: italic; color: #ffe0f0; }
+.card-title { color:#e84393; font-size:2.2rem; margin-bottom:5px; }
+.card-date { color:#fff; font-style:italic; }
 
 .card-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.card-to, .card-from {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    flex-grow:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 .card-to span, .card-from span {
-    font-weight: bold;
-    color: #ffd1e6;
+    color:#ffd6e0;
+    font-weight:bold;
 }
 
 .card-message {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin: 20px 0;
-    color: #fff;
+    font-size:1.3rem;
+    margin:20px 0;
 }
 
-/* Animation cœur */
 .card-heart {
-    font-size: 4rem;
-    margin: 20px 0;
-    color: #ff6b81;
+    font-size:4rem;
+    color:#e84393;
+    margin:20px 0;
     animation: heartbeat 1.5s infinite;
 }
 
 @keyframes heartbeat {
     0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
 /* Compliment */
 .generated-compliment {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.7);
     border-radius: 10px;
     padding: 15px;
     margin-top: 20px;
-    border-left: 5px solid #ff6b81;
+    border-left: 5px solid #e84393;
     font-style: italic;
-    color: #fff;
+    color:#5a3d5c;
 }
 
-/* Footer */
-.card-footer {
-    text-align: center;
-    border-top: 2px dashed rgba(255,255,255,0.5);
-    padding-top: 20px;
-    margin-top: 20px;
-    font-style: italic;
-}
+.hidden { display:none; }
 
-/* Partage */
+/* Share options */
 .share-options {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
-    width: 100%;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    margin-top:20px;
 }
 
 .share-btn {
-    padding: 10px 20px;
-    border-radius: 50px;
-    background: rgba(255,255,255,0.8);
-    border: 1px solid rgba(255,255,255,0.5);
-    color: #5a3d5c;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding:10px 20px;
+    border-radius:50px;
+    background:#f8f9fa;
+    border:1px solid #dee2e6;
+    color:#6d5d6b;
+    cursor:pointer;
+    transition:all 0.3s;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .share-btn:hover {
-    background: rgba(255,255,255,1);
-    transform: translateY(-3px);
+    background:#e9ecef;
+    transform:translateY(-3px);
 }
 
-/* Media Queries */
-@media (max-width:768px){
-    .app-container{ flex-direction: column; }
+/* ========== ANIMATION CONFETTI HEARTS ========== */
+@keyframes fall {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(100vh); opacity:0; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:768px){
+    .app-container{ flex-direction:column; }
     header h1{ font-size:2.2rem; }
-    .button-group{ flex-direction: column; }
+    .button-group{ flex-direction:column; }
     .btn{ width:100%; }
-    .theme-selector{ grid-template-columns: repeat(2,1fr);}
-    .share-options{ flex-direction: column; }
+    .theme-selector{ grid-template-columns: repeat(2,1fr); }
+    .share-options{ flex-direction:column; }
     .share-btn{ width:100%; justify-content:center; }
 }
-
-/* Thèmes dynamiques */
-.theme-1 { background: linear-gradient(135deg, #ffafbd, #ffc3a0) !important; }
-.theme-2 { background: linear-gradient(135deg, #a1c4fd, #c2e9fb) !important; }
-.theme-3 { background: linear-gradient(135deg, #ffecd2, #fcb69f) !important; }
-.theme-4 { background: linear-gradient(135deg, #84fab0, #8fd3f4) !important; }
-.theme-5 { background: linear-gradient(135deg, #d4fc79, #96e6a1) !important; }
-.theme-6 { background: linear-gradient(135deg, #fad0c4, #ffd1ff) !important; }
