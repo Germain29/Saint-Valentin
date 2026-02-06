@@ -247,6 +247,9 @@ input:focus, select:focus, textarea:focus {
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.5s ease;
+
+    /* AJOUT DE L'IMAGE EN BACKGROUND */
+    background: url('k.jpg') center/cover no-repeat;
 }
 
 /* Glow dynamique sur carte */
