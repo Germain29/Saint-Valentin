@@ -276,7 +276,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .card-date {
-    color: #6d5d6b;
+    color: white;
     font-style: italic;
 }
 
@@ -293,7 +293,7 @@ input:focus, select:focus, textarea:focus {
 .card-to {
     font-size: 1.4rem;
     margin-bottom: 10px;
-    color: #6d5d6b;
+    color: white;
 }
 
 .card-to span {
@@ -305,7 +305,7 @@ input:focus, select:focus, textarea:focus {
     font-size: 1.3rem;
     line-height: 1.6;
     margin: 20px 0;
-    color: #5a3d5c;
+    color: white;
 }
 
 /* Coeur animé */
