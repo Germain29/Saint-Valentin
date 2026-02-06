@@ -1,4 +1,4 @@
-/* Reset et base */
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     color: #5a3d5c;
 }
 
-/* Conteneur principal */
+/* Container */
 .container {
     max-width: 1000px;
     width: 100%;
@@ -49,7 +49,7 @@ header p {
     margin: 0 auto;
 }
 
-/* Décorations cœur */
+/* Heart Decorations */
 .heart-decoration {
     position: absolute;
     color: rgba(232, 67, 147, 0.2);
@@ -62,7 +62,7 @@ header p {
 .heart-3 { bottom: 10px; left: 40px; }
 .heart-4 { bottom: 10px; right: 40px; }
 
-/* Conteneur principal de l'app */
+/* App Layout */
 .app-container {
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +70,6 @@ header p {
     margin-bottom: 40px;
 }
 
-/* Section formulaire */
 .form-section {
     flex: 1;
     min-width: 300px;
@@ -80,7 +79,6 @@ header p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Aperçu carte */
 .card-preview {
     flex: 1;
     min-width: 300px;
@@ -94,7 +92,7 @@ header p {
     justify-content: center;
 }
 
-/* Titres et sections */
+/* Titles & Sections */
 .section-title {
     color: #e84393;
     margin-bottom: 25px;
@@ -103,7 +101,6 @@ header p {
     font-size: 1.8rem;
 }
 
-/* Formulaire */
 .form-group {
     margin-bottom: 20px;
 }
@@ -121,16 +118,15 @@ input, select, textarea {
     border: 2px solid #ffe0e6;
     border-radius: 10px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s;
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: #e84393;
-    box-shadow: 0 0 10px rgba(232, 67, 147, 0.3);
 }
 
-/* Sélecteur de thème */
+/* Themes */
 .theme-selector {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -158,10 +154,9 @@ input:focus, select:focus, textarea:focus {
 
 .theme-option.selected {
     border-color: #e84393;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Dégradés des thèmes */
 .theme-1 { background: linear-gradient(135deg, #ffafbd, #ffc3a0); }
 .theme-2 { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
 .theme-3 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
@@ -169,7 +164,7 @@ input:focus, select:focus, textarea:focus {
 .theme-5 { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
 .theme-6 { background: linear-gradient(135deg, #fad0c4, #ffd1ff); }
 
-/* Checkbox */
+/* Checkboxes */
 .checkbox {
     display: flex;
     align-items: center;
@@ -182,7 +177,7 @@ input:focus, select:focus, textarea:focus {
     margin-right: 10px;
 }
 
-/* Boutons */
+/* Buttons */
 .button-group {
     display: flex;
     gap: 15px;
@@ -209,55 +204,72 @@ input:focus, select:focus, textarea:focus {
 .btn-primary {
     background: linear-gradient(to right, #e84393, #fd79a8);
     color: white;
-    box-shadow: 0 5px 15px rgba(232,67,147,0.3);
 }
 
 .btn-secondary {
     background: linear-gradient(to right, #6c5ce7, #a29bfe);
     color: white;
-    box-shadow: 0 5px 15px rgba(108,92,231,0.3);
 }
 
 .btn-success {
     background: linear-gradient(to right, #00b894, #55efc4);
     color: white;
-    box-shadow: 0 5px 15px rgba(0,184,148,0.3);
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
     transform: translateY(0);
 }
 
-/* Carte de Saint-Valentin */
+/* Carte de Saint-Valentin améliorée */
 .valentine-card {
     width: 100%;
     max-width: 500px;
-    border-radius: 20px;
+    background: linear-gradient(
+        270deg,
+        #ffffff,
+        #fff0f5,
+        #ffe4ec,
+        #ffffff
+    );
+    background-size: 600% 600%;
+    animation: cardGradient 12s ease infinite, cardGlow 3s infinite;
+    border-radius: 24px;
     padding: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.2) inset;
     position: relative;
     overflow: hidden;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.5s ease;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* Glow dynamique sur carte */
-.valentine-card.theme-1 { background: linear-gradient(135deg, #ffafbd, #ffc3a0); box-shadow: 0 0 25px #ffafbd, 0 0 50px #ffc3a0; }
-.valentine-card.theme-2 { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); box-shadow: 0 0 25px #a1c4fd, 0 0 50px #c2e9fb; }
-.valentine-card.theme-3 { background: linear-gradient(135deg, #ffecd2, #fcb69f); box-shadow: 0 0 25px #ffecd2, 0 0 50px #fcb69f; }
-.valentine-card.theme-4 { background: linear-gradient(135deg, #84fab0, #8fd3f4); box-shadow: 0 0 25px #84fab0, 0 0 50px #8fd3f4; }
-.valentine-card.theme-5 { background: linear-gradient(135deg, #d4fc79, #96e6a1); box-shadow: 0 0 25px #d4fc79, 0 0 50px #96e6a1; }
-.valentine-card.theme-6 { background: linear-gradient(135deg, #fad0c4, #ffd1ff); box-shadow: 0 0 25px #fad0c4, 0 0 50px #ffd1ff; }
+.valentine-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    transform: rotate(25deg);
+    animation: cardShine 4s infinite;
+    pointer-events: none;
+}
 
-/* Header carte */
+/* Carte contenu */
 .card-header {
     text-align: center;
     border-bottom: 2px dashed #ffe0e6;
@@ -266,10 +278,9 @@ input:focus, select:focus, textarea:focus {
 }
 
 .card-title {
+    color: #e84393;
     font-size: 2.2rem;
     margin-bottom: 10px;
-    color: #e84393;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .card-date {
@@ -277,7 +288,6 @@ input:focus, select:focus, textarea:focus {
     font-style: italic;
 }
 
-/* Contenu carte */
 .card-content {
     flex-grow: 1;
     display: flex;
@@ -305,19 +315,12 @@ input:focus, select:focus, textarea:focus {
     color: #5a3d5c;
 }
 
-/* Coeur animé */
+/* Coeur animé amélioré */
 .card-heart {
     font-size: 4rem;
     color: #e84393;
     margin: 20px 0;
-    animation: heartbeat 1.5s infinite;
-    text-shadow: 0 0 10px #e84393, 0 0 20px #fd79a8;
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    animation: heartbeatSoft 1.6s infinite;
 }
 
 .card-from {
@@ -340,9 +343,8 @@ input:focus, select:focus, textarea:focus {
     font-style: italic;
 }
 
-/* Compliments */
 .generated-compliment {
-    background-color: rgba(255,245,250,0.9);
+    background-color: #fff9fb;
     border-radius: 10px;
     padding: 15px;
     margin-top: 20px;
@@ -351,7 +353,10 @@ input:focus, select:focus, textarea:focus {
     color: #6d5d6b;
 }
 
-/* Footer */
+.hidden {
+    display: none;
+}
+
 footer {
     text-align: center;
     padding: 20px;
@@ -360,7 +365,7 @@ footer {
     margin-top: 20px;
 }
 
-/* Options de partage */
+/* Share Options */
 .share-options {
     display: flex;
     gap: 15px;
@@ -385,6 +390,49 @@ footer {
 .share-btn:hover {
     background: #e9ecef;
     transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes cardGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow:
+            0 15px 30px rgba(232, 67, 147, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        box-shadow:
+            0 25px 55px rgba(232, 67, 147, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        box-shadow:
+            0 15px 30px rgba(232, 67, 147, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes cardShine {
+    0% { left: -80%; }
+    100% { left: 130%; }
+}
+
+@keyframes heartbeatSoft {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.15); }
+    60% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Hover effect carte */
+.valentine-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
 }
 
 /* Responsive */
